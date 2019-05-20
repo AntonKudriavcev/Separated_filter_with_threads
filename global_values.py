@@ -22,7 +22,8 @@ A   = 1
 f_d = 22050
 T   = 10.0
 dt  = 1/f_d
-t   = np.linspace(0.1, T, int(T*f_d), endpoint = False) # time variable
+t   = np.linspace(0.1, T, int(T * f_d), endpoint = False) # time variable
+
 ##---buffer for input data------
 voltage = []
 
@@ -127,14 +128,13 @@ z_3_1 = 3*[0]
 z_3_2 = 3*[0]
 z_3_3 = 3*[0]
 
-##------------general list----------
+##------------general list of delay line----------
 Z = [[z_1_1,z_1_2,z_1_3], [z_2_1,z_2_2,z_2_3], [z_3_1,z_3_2,z_3_3]]
 
-##-----------list for filt_volt--------------
+##-----------list for filtred voltage--------------
 filt_volt = []
 X = 0
 Y = 0
-
 ##-----set events for threads--------
 e1 = threading.Event()
 e2 = threading.Event()

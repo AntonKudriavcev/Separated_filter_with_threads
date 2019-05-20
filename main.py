@@ -11,6 +11,7 @@ import threading
 import global_values as g_v
 import filterr       as fl
 import generatorr    as gn
+import plot_fft
 
 ##--------data extraction------
 g_v.voltage, g_v.f_d = librosa.load('..\\Separated_filter_with_threads\\wav\\Clean_file.wav', duration = g_v.T)
@@ -22,7 +23,7 @@ g_v.voltage = g_v.voltage + 0.250*(np.sin(2*np.pi*g_v.f_s_1*g_v.t) +
                np.sin(2*np.pi*g_v.f_s_5*g_v.t) + 
                np.sin(2*np.pi*g_v.f_s_6*g_v.t))
 ##-------save as WAV----------
-sf.write('..\\Separated_filter_with_threads\\wav\\Signal_with_noise.wav', g_v.voltage, g_v.f_d, subtype = 'PCM_24')
+# sf.write('..\\Separated_filter_with_threads\\wav\\Signal_with_noise.wav', g_v.voltage, g_v.f_d, subtype = 'PCM_24')
 
 ##--------------------------------------------
 ##--------------create threads----------------
@@ -41,4 +42,6 @@ generator_thread.join()
 
 #--------save WAV file---------
 output = np.array(g_v.filt_volt)
-sf.write('..\\Separated_filter_with_threads\\wav\\Matlab_simulation.wav', output, g_v.f_d, subtype = 'PCM_24')
+# sf.write('..\\Separated_filter_with_threads\\wav\\Matlab_simulation.wav', output, g_v.f_d, subtype = 'PCM_24')
+
+plot_fft.show_spectrum(g_v.voltage, g_v.filt_volt, g_v.f_d)
