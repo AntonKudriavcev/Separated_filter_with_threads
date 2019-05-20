@@ -4,33 +4,25 @@ def filter_controller():
   while 1:
     g_v.e1.wait()
     g_v.e1.clear()
-    # print('filter thread is started')
+
   ##--------------------------------------------
   ##----filtration for every single section-----
   ##--------------------------------------------
 
     g_v.X = filter(1, 1, g_v.a_coef_1_1, g_v.b_coef_1_1, 2, g_v.X)
-    # g_v.Y = 0
     g_v.X = filter(1, 2, g_v.a_coef_1_2, g_v.b_coef_1_2, 2, g_v.X)
-    # g_v.Y = 0
     g_v.X = filter(1, 3, g_v.a_coef_1_3, g_v.b_coef_1_3, 1, g_v.X)
-    # g_v.Y = 0
 
     g_v.X = filter(2, 1, g_v.a_coef_2_1, g_v.b_coef_2_1, 2, g_v.X)
-    # g_v.Y = 0
     g_v.X = filter(2, 2, g_v.a_coef_2_2, g_v.b_coef_2_2, 2, g_v.X)
-    # g_v.Y = 0
     g_v.X = filter(2, 3, g_v.a_coef_2_3, g_v.b_coef_2_3, 2, g_v.X)
-    # g_v.Y = 0
 
     g_v.X = filter(3, 1, g_v.a_coef_3_1, g_v.b_coef_3_1, 2, g_v.X)
-    # g_v.Y = 0
     g_v.X = filter(3, 2, g_v.a_coef_3_2, g_v.b_coef_3_2, 2, g_v.X)
-    # g_v.Y = 0
     g_v.X = filter(3, 3, g_v.a_coef_3_3, g_v.b_coef_3_3, 2, g_v.X)
-    # g_v.Y = 0
+
     g_v.filt_volt.append(g_v.X)
-    g_v.e2.set()
+    g_v.e2.set()## set event for generatorr thread
     # print('filter thread is finished')
 ##--------------------------------------------------------
 ##--------------------filtering part----------------------

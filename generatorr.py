@@ -8,5 +8,5 @@ def generator():
     g_v.e2.clear()
     g_v.X = g_v.voltage[i]
     # print(i , X)
-    g_v.e1.set()
+    g_v.e1.set()##set event for filterr thread
     # print('generator thread is finished')
